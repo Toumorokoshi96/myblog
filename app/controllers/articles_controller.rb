@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
   def show
-    @@str = "クロちゃんかわいい"
+    @str = "クロちゃんかわいい"
   end
 end

@@ -10,25 +10,27 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    Article.create(article_params)
-    #
+    Article.create(article_params_permitted)
+    #create.html.erbへリダイレクト
   end
 
   def edit
-    #@article = Article.findその記事のid
+    @article_id = params[:id]
+    @article = Article.find(@article_id)
   end
 
   def update
-    #
+    article = Article.find(params[:id])
+    article.update(article_params_permitted) #if article.user_id == current_user.id
   end
 
   def destroy
-    @current_user_id = current_user.id
-    #Article.delete(v)
+    article = Article.find(params[:id])
+     article.destroy #if article.user_id == current_user.id
   end
 
   private
-  def article_params
+  def article_params_permitted
     params.require(:article).permit(:name, :title, :text)
   end
 

@@ -1,0 +1,17 @@
+<div class="edit-form">
+<h1>編集・削除</h1>
+    <%= form_with model: @article do |form| %>
+      <%= form.text_field :name %>
+      <%= form.text_field :title %>
+      <%= form.text_area :text %>
+      <%= form.submit %>
+    <% end %>
+    <%= link_to '削除', "/articles/#{@article.id}", method: :delete %>
+    <%# <%= form_with method: :delete, model: @article do |form| %>
+      <%# <% form.submit %>
+    <%# <% end %> 
+
+  <footer>
+  <%= link_to '一覧へ戻る', "/articles"%>
+</footer>
+</div>

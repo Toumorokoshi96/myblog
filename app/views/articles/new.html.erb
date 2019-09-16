@@ -1,14 +1,12 @@
 <div class="create-form">
-  <%# <%= form_tag('/articles', method: :post) do %>
+<h1>新規記事作成</h1>
     <%= form_with  model: @article do |form| %>
       <%= form.text_field :name %>
       <%= form.text_field :title %>
       <%= form.text_area :text %>
       <%= form.submit %>
     <% end %>
-    <%# <input placeholder="Name" type="text" name="name">
-    <input placeholder="Title" type="text" name="title">
-    <textarea cols="30" name="text" placeholder="text" rows="10"></textarea>
-    <input type="submit" value="SENT"> %>
-  <%# <% end %> 
+<footer>
+  <%= link_to '一覧へ戻る', "/articles/index"%>
+</footer>
 </div>

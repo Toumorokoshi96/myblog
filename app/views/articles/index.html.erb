@@ -1,0 +1,19 @@
+<div class="contents" >
+  <% @articles.each do |article| %>
+    <div class = "article-title">
+      <%= article.title %>
+    </div>
+    <div class = "author">
+      <%= article.name%>
+    </div>
+      <div class = "text"><%= simple_format(article.text) %>
+    </div>
+    <%= link_to '削除', "/articles/#{article.id}", method: :delete %>
+  <% end %>
+
+  <footer>
+    <div class = "pagination">
+      <%= paginate(@articles) %>
+    </div>
+  </footer>
+</div>

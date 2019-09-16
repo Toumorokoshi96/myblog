@@ -8,7 +8,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header class="header">
+      <h1 class="site-title"><a href="/">Blog</a></h1>
+      <% if user_signed_in? %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          <a class="post" href="/articles/new">投稿する</a>
+      <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'post' %>
+      <% end %>
+  </header>
   <body>
     <%= yield %>
   </body>

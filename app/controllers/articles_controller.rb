@@ -21,12 +21,12 @@ class ArticlesController < ApplicationController
 
   def update
     article = Article.find(params[:id])
-    article.update(article_params_permitted) #if article.user_id == current_user.id
+    article.update(article_params_permitted) if article.user_id == current_user.id
   end
 
   def destroy
     article = Article.find(params[:id])
-     article.destroy #if article.user_id == current_user.id
+     article.destroy if article.user_id == current_user.id
   end
 
   private

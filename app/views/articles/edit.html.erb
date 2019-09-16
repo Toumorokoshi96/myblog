@@ -1,10 +1,10 @@
 <div class="edit-form">
 <h1>編集・削除</h1>
     <%= form_with model: @article do |form| %>
-      <%= form.text_field :name %>
-      <%= form.text_field :title %>
-      <%= form.text_area :text %>
-      <%= form.submit %>
+      <div><%= form.hidden_field :name, :value => current_user.name %> </div>
+      <div>タイトル<%= form.text_field :title %></div>
+      <div><%= form.text_area :text %></div>
+      <div><%= form.submit value: "OK"%></div>
     <% end %>
     <%= link_to '削除', "/articles/#{@article.id}", method: :delete %>
     <%# <%= form_with method: :delete, model: @article do |form| %>
